@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.container {
+  padding: 70px;
+}
+#home {
+  position: relative;
+}
+// Start Header
+.sticky {
+  background-color: #1a0d01;
+  transition: 0.5s;
+}
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: transparent;
+  z-index: 11;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    .logo {
+      background-image: url("/assets/images/logo.png.webp");
+      background-size: cover;
+      background-position: center;
+    }
+    #navbarmenu {
+      li {
+        margin-left: 50px;
+        position: relative;
+        .submenu {
+          width: 200px;
+          background-color: #fff;
+          padding: 10px 20px 0 30px;
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          opacity: 0;
+          transition: 0.5s;
+          p {
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 400;
+          }
+        }
+        &:hover .submenu {
+          opacity: 1;
+          top: 40px;
+        }
+      }
+
+      a {
+        color: #fff;
+        font-weight: 500;
+      }
+    }
+    p {
+      font-weight: 700;
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+}
+// Start delicious_area
+#delicious_area h3 {
+  color: #001d38;
+  font-family: "Philosopher", sans-serif;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+.tabmenu ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  border-bottom: 1px solid #6c757d;
+}
+
+.tabmenu i {
+  color: #596672;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+.contents {
+  position: relative;
+}
+.tab-content {
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  row-gap: 70px;
+  column-gap: 40px;
+}
+.card {
+  display: flex;
+  gap: 30px;
+  width: 47%;
+}
+.card-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.card .card-title {
+  font-size: 24px;
+  color: #001d38;
+}
+.card .card-info {
+  color: #596672;
+}
+.card .card-price {
+  color: #db9a64;
+  font-size: 26px;
+}
+.tabbtn {
+  padding: 0 10px 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabbtn.active {
+  position: relative;
+  color: #db9a64;
+  i {
+    color: #db9a64;
+  }
+}
+.tabbtn.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #db9a64;
+}
+
+// Start Slider
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+  .slides {
+    display: flex;
+    cursor: grab;
+
+    .slide {
+      min-width: 100%;
+      height: 100vh;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-position: center;
+    }
+  }
+  .slides.grabbing {
+    cursor: grabbing;
+  }
+  h3 {
+    color: #fff;
+    font-size: 70px;
+    font-family: "Philosopher", sans-serif;
+  }
+  .btn-1 {
+    display: inline-block;
+    background-color: #db9a64;
+    color: #fff;
+    padding: 20px 50px;
+    letter-spacing: 1px;
+    transition: 0.4s;
+    &:hover {
+      background-color: #001d38;
+    }
+  }
+  .slide-content {
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+}
+.slide1 {
+  background: linear-gradient(
+      to right,
+      rgba(0, 29, 56, 0.7) 0%,
+      rgba(26, 13, 1, 0.6) 100%
+    ),
+    url("/assets/images/banner.png.webp");
+}
+.slide2 {
+  background: linear-gradient(
+      to right,
+      rgba(0, 29, 56, 0.7) 0%,
+      rgba(26, 13, 1, 0.6) 100%
+    ),
+    url("/assets/images/banner2.png.webp");
+}
+@media only screen and (max-width: 992px) {
+  nav {
+    flex-direction: column;
+    p {
+      display: none;
+    }
+    .logo {
+      width: 120px;
+      height: 60px;
+    }
+  }
+  .slider-container .slide-content {
+    width: 90% !important;
+  }
+  .slider-container h3 {
+    font-size: 60px !important;
+  }
+  .navbarmenu li {
+    display: block !important;
+  }
+  .slicknav-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #4c4c4c;
+    .navbarmenu {
+      display: none;
+    }
+    .slicknav-open {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+    ul {
+      padding: 30px 0 20px 0;
+      display: none;
+      transition: 2s;
+      li {
+        display: block;
+        margin-bottom: 10px;
+        margin-left: 20px;
+      }
+    }
+  }
+  .bar-menu {
+    background-color: #222;
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .tab-content .container {
+    padding: 70px 40px;
+  }
+  .tab-content .card {
+    flex-direction: column;
+    img {
+      width: 200px;
+    }
+  }
+}
+@media only screen and (min-width: 992px) {
+  nav {
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 40px;
+    ul {
+      display: block;
+    }
+    p {
+      display: inline-block;
+    }
+    .logo {
+      width: 200px;
+      height: 100px;
+    }
+  }
+  .bar-menu {
+    display: none;
+  }
+  #navbarmenu {
+    li {
+      display: inline-block;
+    }
+  }
+}
+@media only screen and (max-width: 880px) {
+  .tab-content .cards {
+    justify-content: flex-start !important;
+    .card {
+      width: 100%;
+    }
+  }
+}
